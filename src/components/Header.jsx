@@ -8,9 +8,9 @@ const Header = ({ restaurantName, logo, onMenuClick }) => {
         <img src={logo} alt={`${restaurantName} logo`} className="w-10 h-10 mr-2" />
         <h1 className="text-xl font-bold">{restaurantName}</h1>
       </div>
-      <button onClick={onMenuClick} className="p-2 rounded-full hover:bg-gray-200">
+      {/* <button onClick={onMenuClick} className="p-2 rounded-full hover:bg-gray-200">
         <Menu size={24} />
-      </button>
+      </button> */}
     </header>
   );
 };

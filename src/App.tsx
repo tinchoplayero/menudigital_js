@@ -6,11 +6,15 @@ import CategoryMenu from './components/CategoryMenu';
 import { fetchMenuItems } from './api';
 import { MenuItem, Category } from './types';
 
+
+
 const App: React.FC = () => {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  
 
   useEffect(() => {
     const loadMenuItems = async () => {
@@ -19,7 +23,7 @@ const App: React.FC = () => {
 
       const uniqueCategories = Array.from(new Set(items.map(item => item.categoria)));
       const categorizedItems = uniqueCategories.map(category => ({
-        name: category,
+        name: category as string,
         items: items.filter(item => item.categoria === category),
       }));
       setCategories(categorizedItems);
@@ -40,8 +44,8 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <Header
-        restaurantName="Mi Restaurante"
-        logo="https://example.com/logo.png"
+        restaurantName="Amazonas Menu Digital"
+        logo="/src/assets/img/logo.png"
         onMenuClick={() => setShowCategoryMenu(true)}
       />
       <main className="container mx-auto px-4 py-8">

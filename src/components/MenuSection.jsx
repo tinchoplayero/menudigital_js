@@ -1,5 +1,9 @@
 import React from 'react';
 import MenuItem from './MenuItem';
+import MenuRegularItem from './MenuRegularItem';
+import MenuOfertaItem from './MenuOfertaItem';
+import MenuPromoItem from './MenuPromoItem'
+import MenuDestacadoItem from './MenuDestacadoItem'
 
 const MenuSection = ({ title, items }) => {
   const promoItems = items.filter(item => item.promo);
@@ -9,40 +13,40 @@ const MenuSection = ({ title, items }) => {
 
   return (
     <section className="mb-8">
-      <h2 className="text-2xl font-bold mb-4">{title}</h2>
+      <h2 className="text-center text-3xl font-bold p-2 mb-4 bg-green-800 text-white">{title}</h2>
       {promoItems.length > 0 && (
         <div className="mb-4">
-          <h3 className="text-xl font-semibold mb-2 text-green-600">PROMOCIÓN</h3>
+          <h3 className="text-center text-5xl font-semibold mb-2 text-red-600">PROMOCIÓN</h3>
           <div className="flex flex-wrap">
             {promoItems.map(item => (
-              <MenuItem key={item.id} item={item} />
+              <MenuPromoItem key={item.id} item={item} />
             ))}
           </div>
         </div>
       )}
       {ofertaItems.length > 0 && (
         <div className="mb-4">
-          <h3 className="text-xl font-semibold mb-2 text-red-600">OFERTA</h3>
+          <h3 className="text-5xl font-semibold mb-2 text-red-600">OFERTA</h3>
           <div className="flex flex-wrap">
             {ofertaItems.map(item => (
-              <MenuItem key={item.id} item={item} />
+              <MenuOfertaItem key={item.id} item={item} />
             ))}
           </div>
         </div>
       )}
       {destacadoItems.length > 0 && (
         <div className="mb-4">
-          <h3 className="text-xl font-semibold mb-2 text-yellow-600">DESTACADOS</h3>
+          <h3 className="text-4xl font-semibold mb-2 text-yellow-600">DESTACADOS</h3>
           <div className="flex flex-wrap">
             {destacadoItems.map(item => (
-              <MenuItem key={item.id} item={item} />
+              <MenuDestacadoItem key={item.id} item={item} />
             ))}
           </div>
         </div>
       )}
       <div className="flex flex-wrap">
         {regularItems.map(item => (
-          <MenuItem key={item.id} item={item} />
+          <MenuRegularItem key={item.id} item={item} />
         ))}
       </div>
     </section>

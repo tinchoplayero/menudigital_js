@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-/* DESTACADO */
 
 
-const MenuItem = ({ item }) => {
+
+const MenuOfertaItem = ({ item }) => {
   const [showFullImage, setShowFullImage] = useState(false);
 
   const getBorderColor = () => {
-    if (item.promo) return 'border-green-500 border-4';
+    if (item.promo) return 'border-red-500 border-4';
     if (item.oferta) return 'border-red-500 border-4';
     if (item.destacado) return 'border-yellow-500 border-4';
     return 'border-gray-500';
@@ -30,7 +30,7 @@ const MenuItem = ({ item }) => {
     return (
       <div className="flex flex-col items-end">
         {prices.map((price, index) => (
-           <span key={index} className="font-bold">
+           <span key={index} className=" text-3xl font-bold">
            ${typeof price === 'number' ? new Intl.NumberFormat('es-AR').format(price) : 'N/A'}
           </span>
         ))}
@@ -49,8 +49,8 @@ const MenuItem = ({ item }) => {
           className="w-full h-48 object-cover rounded-lg cursor-pointer mb-2"
           onClick={() => setShowFullImage(true)}
         />
-        <h3 className="text-lg font-semibold mb-1">{item.nombre}</h3>
-        <p className="text-sm text-gray-600 mb-2">{item.descripcion}</p>
+        <h3 className="text-4xl font-semibold mb-1">{item.nombre}</h3>
+        <p className="text-xl text-gray-600 mb-2">{item.descripcion}</p>
         {renderPrices()}
         {showFullImage && (
           <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={() => setShowFullImage(false)}>
@@ -62,4 +62,4 @@ const MenuItem = ({ item }) => {
   );
 };
 
-export default MenuItem;
+export default MenuOfertaItem;
